@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Diário de Bordo: registre atividades do dia, use offline e instale na tela inicial.">
+    <meta name="theme-color" content="#171717">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Diário">
+    <title>Diário de Bordo</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="pagina">
+      <header class="topo">
+        <div class="marca">
+          <span class="marca-icone" data-icone="book-open"></span>
+          <div>
+            <h1>Diário de Bordo</h1>
+            <p class="subtitulo">Atividades do dia, neste aparelho, com ou sem internet.</p>
+          </div>
+        </div>
+        <div class="acoes">
+          <span id="rede" class="badge">
+            <span data-icone="wifi"></span>
+            <span id="rede-texto">Online</span>
+          </span>
+          <button type="button" id="instalar" class="btn btn-outline" hidden>
+            <span data-icone="download"></span>
+            Instalar
+          </button>
+          <button type="button" id="tema" class="btn btn-outline btn-icone" aria-label="Usar tema escuro">
+            <span data-icone="moon"></span>
+          </button>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="card" aria-labelledby="titulo-form">
+          <div class="secao-topo">
+            <h2 id="titulo-form">Nova entrada</h2>
+          </div>
+          <form id="form-entrada" novalidate>
+            <label class="campo" for="titulo">
+              <span class="label">Título</span>
+              <input class="input" id="titulo" name="titulo" type="text" maxlength="80" placeholder="Ex.: Revisão do módulo de PWA" autocomplete="off" required>
+            </label>
+            <label class="campo" for="descricao">
+              <span class="label">Descrição</span>
+              <textarea class="textarea" id="descricao" name="descricao" maxlength="2000" placeholder="O que foi feito, o que ficou pendente, o que você aprendeu." required></textarea>
+            </label>
+            <label class="campo" for="data">
+              <span class="label">Data</span>
+              <input class="input" id="data" name="data" type="date" required>
+            </label>
+            <button class="btn btn-bloco" type="submit">
+              <span data-icone="plus"></span>
+              Registrar entrada
+            </button>
+          </form>
+        </section>
+
+        <section class="card card-lista" aria-labelledby="titulo-lista">
+          <div class="secao-topo">
+            <h2 id="titulo-lista">Entradas</h2>
+            <span id="contador" class="badge">Nenhuma entrada</span>
+          </div>
+          <div id="lista" class="lista"></div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toaster" class="toaster" aria-live="polite" aria-atomic="false"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
