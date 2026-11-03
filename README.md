@@ -8,7 +8,7 @@ Exercício de Progressive Web App do curso de Java Full Stack da EBAC.
 
 https://lupiran.github.io/diario-de-bordo/
 
-O endereço passa a responder depois do primeiro deploy na branch `main`. Em **Settings → Pages**, a origem precisa estar em **GitHub Actions**.
+O GitHub Pages publica a branch `main`. O endereço passa a responder cerca de um minuto depois do push.
 
 ## Como rodar
 
@@ -49,6 +49,3 @@ A fonte é a Geist, a mesma família usada no shadcn. O arquivo está em `fonts/
 4. Em DevTools → **Network**, marque **Offline** e recarregue: a tela e as entradas continuam.
 5. O botão **Instalar** aparece quando o Chrome dispara `beforeinstallprompt`.
 
-## Publicação
-
-O workflow em [`.github/workflows/pages.yml`](.github/workflows/pages.yml) publica esta pasta no GitHub Pages a cada push na `main`. O token é o `GITHUB_TOKEN` automático do Actions. Não cadastre outro secret com esse nome.
